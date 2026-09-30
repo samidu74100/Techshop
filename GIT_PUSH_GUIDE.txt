@@ -1,0 +1,199 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    📦 COMMENT FAIRE LE GIT PUSH                          ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 VOTRE REPO GITHUB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   https://github.com/samidu74100/techshop.git
+
+
+✅ ÉTAT ACTUEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   ✅ Git initialisé dans /workspace
+   ✅ Branche 'main' créée
+   ✅ 2 commits faits (41 fichiers)
+   ✅ Remote ajouté: origin -> github.com/samidu74100/techshop.git
+   ⏳ En attente: git push
+
+
+⚠️  POURQUOI JE NE PEUX PAS LE FAIRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le bot Cursor Cloud (cursor[bot]) n'a pas les permissions pour pousser
+sur votre repo GitHub personnel. Vous devez le faire depuis votre machine.
+
+
+🚀 SOLUTION: 3 OPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌───────────────────────────────────────────────────────────────────────┐
+│ OPTION 1: Push depuis Cursor Desktop (Le plus simple)                │
+└───────────────────────────────────────────────────────────────────────┘
+
+   Si vous utilisez Cursor Desktop et que le workspace est synchronisé:
+
+   1. Ouvrir Cursor Desktop sur votre machine
+   2. Ouvrir un terminal intégré (Ctrl+`)
+   3. Exécuter:
+
+      git push -u origin main
+
+   4. Entrer vos identifiants GitHub si demandé
+
+
+┌───────────────────────────────────────────────────────────────────────┐
+│ OPTION 2: Depuis votre terminal local                                │
+└───────────────────────────────────────────────────────────────────────┘
+
+   Si vous avez accès au dossier /workspace sur votre machine:
+
+   # Ouvrir un terminal
+   cd /workspace
+   
+   # Vérifier l'état
+   git status
+   
+   # Pousser
+   git push -u origin main
+
+
+┌───────────────────────────────────────────────────────────────────────┐
+│ OPTION 3: Utiliser un Personal Access Token                          │
+└───────────────────────────────────────────────────────────────────────┘
+
+   Si les options 1 et 2 ne marchent pas:
+
+   1. Créer un token GitHub:
+      → https://github.com/settings/tokens
+      → "Generate new token (classic)"
+      → Cocher: repo, workflow
+      → Générer et COPIER le token
+
+   2. Depuis Cursor Desktop ou votre terminal:
+
+      cd /workspace
+      git push https://VOTRE_TOKEN@github.com/samidu74100/techshop.git main
+
+   Remplacer VOTRE_TOKEN par le token copié
+
+
+┌───────────────────────────────────────────────────────────────────────┐
+│ OPTION 4: Télécharger et re-pousser (Dernier recours)                │
+└───────────────────────────────────────────────────────────────────────┘
+
+   1. Créer une archive du code (dans Cursor Cloud):
+      
+      tar -czf ~/techshop-backup.tar.gz \
+        --exclude=node_modules \
+        --exclude=.next \
+        -C /workspace .
+
+   2. Télécharger l'archive sur votre machine
+
+   3. Sur votre machine:
+
+      # Cloner le repo vide
+      git clone https://github.com/samidu74100/techshop.git
+      cd techshop
+      
+      # Extraire l'archive dedans
+      tar -xzf ../techshop-backup.tar.gz
+      
+      # Pousser
+      git push origin main
+
+
+📋 INFORMATIONS IMPORTANTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Repo:    https://github.com/samidu74100/techshop.git
+   Branche: main
+   Commits: 2 (41 fichiers, ~14k lignes)
+
+
+🔐 AUTHENTIFICATION GITHUB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Lors du push, GitHub peut demander:
+
+   • Username: samidu74100
+   • Password: Votre mot de passe OU un Personal Access Token
+
+
+✅ VÉRIFIER LE PUSH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Après le push, vérifiez:
+
+   1. Ouvrir: https://github.com/samidu74100/techshop
+   
+   2. Vous devriez voir:
+      • 41 fichiers
+      • Dossiers: src/, public/, etc.
+      • README.md, package.json, etc.
+
+
+🎯 APRÈS LE PUSH RÉUSSI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Une fois le code sur GitHub:
+
+   1. ✅ Aller sur: https://vercel.com/signup
+   
+   2. ✅ Login avec GitHub
+   
+   3. ✅ Cliquer "Add New" → "Project"
+   
+   4. ✅ Sélectionner "techshop"
+   
+   5. ✅ Cliquer "Deploy"
+   
+   6. ⏳ Attendre 2-3 minutes
+   
+   7. 🎉 VOTRE SITE EST EN LIGNE!
+
+
+⏱️  TEMPS ESTIMÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Git push:           1-2 minutes
+   Vercel deployment:  2-3 minutes
+   ─────────────────────────────────
+   TOTAL:              3-5 minutes
+
+
+🆘 EN CAS DE PROBLÈME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   Erreur "Permission denied":
+   → Utilisez un Personal Access Token (Option 3)
+
+   Erreur "Authentication failed":
+   → Vérifiez username/password ou token
+
+   Repo non trouvé:
+   → Vérifiez l'URL: github.com/samidu74100/techshop
+
+   Conflit de branches:
+   → Le repo doit être vide avant le premier push
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  🎯 COMMANDE EXACTE À EXÉCUTER                                           ║
+║                                                                           ║
+║  Sur votre machine (terminal ou Cursor Desktop):                         ║
+║                                                                           ║
+║  cd /workspace                                                           ║
+║  git push -u origin main                                                 ║
+║                                                                           ║
+║  Puis allez sur vercel.com pour déployer! 🚀                             ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
